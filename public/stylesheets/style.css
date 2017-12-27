@@ -1,0 +1,8 @@
+/* Контейнер без отступов */
+.container-fluid {
+  padding: 0;
+}
+/* Цвет (темно-синий) */
+.dark-blue {
+  background-color: #40689c;
+}
