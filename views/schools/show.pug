@@ -1,0 +1,95 @@
+extends ../layout
+
+block content
+  .container-fluid
+    include ../components/mailbar
+    include ../components/navbar
+    .row
+      .col-12.school-head.center
+        h3 Автошкола #{school.name}
+      .col-12.center
+        input.school-show#tab1(type='radio' name='tabs' checked)
+        label(for='tab1') Главная
+        input.school-show#tab2(type='radio' name='tabs')
+        label(for='tab2') Описание
+        //- input.school-show#tab3(type='radio' name='tabs')
+        //- label(for='tab3') Отзывы
+
+        section#content1
+          .row
+            .col-md-3
+              .card.card-margin
+                .card-up.dark-blue
+                .avatar
+                  img.rounded-circle(src="http://www.avtomobilist-tmn.ru/wp-content/themes/twentytwelve/img/logo.png")
+                .card-body
+                  h4 #{school.name}
+            .col-md-6
+              .center
+                h4 Адреса и телефоны:
+              .row
+                .col-8
+                  p #{school.adress1}
+                  p #{school.adress2}
+                  p #{school.adress3}
+                  p #{school.adress4}
+                  p #{school.adress5}
+                  p #{school.adress6}
+                  p #{school.adress7}
+                  p #{school.adress8}
+                  p #{school.adress9}
+                  p #{school.adress10}
+                  p #{school.adress11}
+                  p #{school.adress12}
+                  p #{school.adress13}
+                  p #{school.adress14}
+                  p #{school.adress15}
+                  p #{school.adress16}
+                .col-4
+                  p #{school.phone1}  
+                  p #{school.phone2}  
+                  p #{school.phone3}  
+                  p #{school.phone4}  
+                  p #{school.phone5}  
+                  p #{school.phone6}  
+                  p #{school.phone7}  
+                  p #{school.phone8}  
+                  p #{school.phone9}  
+                  p #{school.phone10}  
+                  p #{school.phone11}  
+                  p #{school.phone12}  
+                  p #{school.phone13}  
+                  p #{school.phone14}  
+                  p #{school.phone15}  
+                  p #{school.phone16}
+            .col-md-3
+              .center
+                h4 Результаты:
+                h6 Процент сдачи экзамена с первого раза*
+              .row
+                table.table
+                  thead
+                    tr           
+                      th(scope='col') Теория             
+                      th(scope='col') Автодром            
+                      th(scope='col') Город
+                  tbody
+                    tr
+                      td #{school.theory}%                 
+                      td #{school.avtodrom}%                  
+                      td #{school.city}%
+            .col-12
+              p * Результаты сдачи экзаменов кандидатами в водители, прошедшими профессиональное обучение в организациях, осуществляющих образовательную деятельность по подготовке водителей транспортных средств категории "B" на территории обслуживания УГИБДД УМВД России по Тюменской области, за 9 месяцев 2017 года.                          
+        section#content2
+          .row
+            .col-md-3
+              .card.card-margin
+                .card-up.dark-blue
+                .avatar
+                  img.rounded-circle(src="http://www.avtomobilist-tmn.ru/wp-content/themes/twentytwelve/img/logo.png")
+                .card-body
+                  h4 #{school.name}
+        section#content3
+          p 3
+    include ../components/footer
+    include ../components/scripts

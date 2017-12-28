@@ -2,4 +2,25 @@ extends ../layout
  
 block content
   .container-fluid
-    include ../components/navbar
+    include ../components/mailbar
+    include navbar
+    .row
+      .col-12.school-head.center
+        h3 Все Автошколы Тюмени в одном месте
+      .col-md-9
+        table.table
+          thead
+            tr
+              th(scope='col') #
+              th(scope='col') Название
+          tbody
+          each school, i in schools
+            tr
+              th(scope='col') 
+                =school.number
+              td
+                a(href='school/' + school._id) 
+                  =school.name
+      .col-md-3
+    include ../components/footer  
+  include ../components/scripts    
