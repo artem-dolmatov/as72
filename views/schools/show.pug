@@ -28,7 +28,7 @@ block content
               .center
                 h4 Адреса и телефоны:
               .row
-                .col-8
+                .col-8.left
                   p #{school.adress1}
                   p #{school.adress2}
                   p #{school.adress3}
@@ -89,6 +89,8 @@ block content
                   img.rounded-circle(src="http://www.avtomobilist-tmn.ru/wp-content/themes/twentytwelve/img/logo.png")
                 .card-body
                   h4 #{school.name}
+            .col-md-6
+              p #{school.description}      
         section#content3
           p 3
     include ../components/footer

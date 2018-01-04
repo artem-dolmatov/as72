@@ -1,0 +1,69 @@
+extends ../layout 
+
+block content
+  .container-fluid
+    .row
+      .col-12
+        form(action='/admin/'+ school._id +'/edit', method='post', name='updateblob', enctype='application/x-www-form-urlencoded')
+          .row
+            .col-4
+              .form-group
+                label(for='_id') ID
+                input.form-control#input_Id(type='text', name='_id', value=school._id)
+              .form-group
+                label Порядковый номер
+                input.form-control#inputNumber(type='number', name='number', value=school.number)
+              .form-group
+                label Название Автошколы
+                input.form-control#inputName(type='text', name='name', value=school.name)
+              .form-group
+                label Категории
+                input.form-control#inputCategory(type='text', name='category', value=school.category)
+              .form-group
+                label Описание
+                textarea.form-control#textareaDescription(type='text', name='description') #{school.description}
+              .form-group
+                label Процент сдачи
+                input.form-control#inputTheory(type='text', name='theory', value=school.theory, placeholder="теория")  
+                input.form-control#inputAvtodrom(type='text', name='avtodrom', value=school.avtodrom, placeholder="автодром")  
+                input.form-control#inputCity(type='text', name='city', value=school.city, placeholder="город")
+            .col-8
+              .row
+                .col-7
+                  label Адреса:
+                  input.form-control#inputAdress1(type='text', name='adress1', value=school.adress1, placeholder='1')
+                  input.form-control#inputAdress2(type='text', name='adress2', value=school.adress2, placeholder='2')
+                  input.form-control#inputAdress3(type='text', name='adress3', value=school.adress3, placeholder='3')
+                  input.form-control#inputAdress4(type='text', name='adress4', value=school.adress4, placeholder='4')
+                  input.form-control#inputAdress5(type='text', name='adress5', value=school.adress5, placeholder='5')         
+                  input.form-control#inputAdress6(type='text', name='adress6', value=school.adress6, placeholder='6')         
+                  input.form-control#inputAdress7(type='text', name='adress7', value=school.adress7, placeholder='7')         
+                  input.form-control#inputAdress8(type='text', name='adress8', value=school.adress8, placeholder='8')         
+                  input.form-control#inputAdress9(type='text', name='adress9', value=school.adress9, placeholder='9')         
+                  input.form-control#inputAdress10(type='text', name='adress10', value=school.adress10, placeholder='10')
+                  input.form-control#inputAdress11(type='text', name='adress11', value=school.adress11, placeholder='11')
+                  input.form-control#inputAdress12(type='text', name='adress12', value=school.adress12, placeholder='12')
+                  input.form-control#inputAdress13(type='text', name='adress13', value=school.adress13, placeholder='13')
+                  input.form-control#inputAdress14(type='text', name='adress14', value=school.adress14, placeholder='14')
+                  input.form-control#inputAdress15(type='text', name='adress15', value=school.adress15, placeholder='15')
+                  input.form-control#inputAdress16(type='text', name='adress16', value=school.adress16, placeholder='16')
+                .col-5
+                  label Телефоны:
+                  input.form-control#inputPhone1(type='text', name='phone1', value=school.phone1)
+                  input.form-control#inputPhone2(type='text', name='phone2', value=school.phone2)
+                  input.form-control#inputPhone3(type='text', name='phone3', value=school.phone3)
+                  input.form-control#inputPhone4(type='text', name='phone4', value=school.phone4)
+                  input.form-control#inputPhone5(type='text', name='phone5', value=school.phone5)         
+                  input.form-control#inputPhone6(type='text', name='phone6', value=school.phone6)         
+                  input.form-control#inputPhone7(type='text', name='phone7', value=school.phone7)         
+                  input.form-control#inputPhone8(type='text', name='phone8', value=school.phone8)         
+                  input.form-control#inputPhone9(type='text', name='phone9', value=school.phone9)         
+                  input.form-control#inputPhone10(type='text', name='phone10', value=school.phone10)
+                  input.form-control#inputPhone11(type='text', name='phone11', value=school.phone11)
+                  input.form-control#inputPhone12(type='text', name='phone12', value=school.phone12)
+                  input.form-control#inputPhone13(type='text', name='phone13', value=school.phone13)
+                  input.form-control#inputPhone14(type='text', name='phone14', value=school.phone14)
+                  input.form-control#inputPhone15(type='text', name='phone15', value=school.phone15)
+                  input.form-control#inputPhone16(type='text', name='phone16', value=school.phone16)
+                  input(type='hidden' value='PUT' name='_method')    
+          button.btn.btn-primary(type='submit') Добавить 

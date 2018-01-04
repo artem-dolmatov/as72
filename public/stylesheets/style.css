@@ -73,6 +73,9 @@ html {
   margin-bottom: 10px;
 }
 /* Автошкола */
+.left {
+  text-align: left;
+}
 section {
   display: none;
   padding: 20px 0 0;
@@ -140,6 +143,11 @@ input:checked + label {
 }
 .rounded-circle {
   width: 100%;
+}
+/* Админка */
+.admin-delete {
+  display: inline-block;
+  margin-left: 4px;
 }
 /* Футер */
 .footer-color {

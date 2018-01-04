@@ -1,0 +1,21 @@
+extends ../layout 
+
+block content
+  .container-fluid
+    h3.
+      #{title}
+    a(href='/admin/new')
+      button Добавить
+    each school, i in schools
+      .row
+        .col-6
+          =school.number + '. '
+          =school.name
+        .col-6 
+          a(href='/admin/' + school.id)
+            button.btn.btn-outline-success(type='button') Показать
+          a(href='/admin/' + school._id + '/edit')  
+            button.btn.btn-outline-primary(type='button') Редактировать   
+          form.admin-delete(action='/admin/' + school._id + '/edit',method='post',enctype='application/x-www-form-urlencoded')
+            input(type='hidden',value='DELETE',name='_method')
+            button.btn.btn-outline-danger(type='submit') Удалить
