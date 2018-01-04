@@ -16,7 +16,7 @@ block content
               th(scope='col') Автодром
               th(scope='col') Город
           tbody
-          - schools.sort((a,b)=>{return (b.city-a.city)+(b.avtodrom-a.avtodrom)})
+          - schools.sort((a,b)=>{return b.city-a.city})
           each school, i in schools        
             tr
               td
