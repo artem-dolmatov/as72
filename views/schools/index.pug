@@ -11,16 +11,23 @@ block content
         table.table
           thead
             tr
-              th(scope='col') #
               th(scope='col') Название
+              th(scope='col') Теория
+              th(scope='col') Автодром
+              th(scope='col') Город
           tbody
-          each school, i in schools
+          - schools.sort((a,b)=>{return (b.city-a.city)+(b.avtodrom-a.avtodrom)})
+          each school, i in schools        
             tr
-              th(scope='col') 
-                =school.number
               td
                 a(href='school/' + school._id) 
-                  =school.name
+                  = school.name
+              td
+                = school.theory + '%' 
+              td
+                = school.avtodrom + '%'
+              td
+                = school.city + '%'        
       .col-md-3
     include ../components/footer  
   include ../components/scripts    
