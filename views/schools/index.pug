@@ -12,6 +12,7 @@ block content
           thead
             tr
               th(scope='col') Название
+              th(scope='col') Категории
               th(scope='col') Теория
               th(scope='col') Автодром
               th(scope='col') Город
@@ -23,7 +24,9 @@ block content
                 a(href='school/' + school._id) 
                   = school.name
               td
-                = school.theory + '%' 
+                = school.category
+              td
+                = school.theory + '%'
               td
                 = school.avtodrom + '%'
               td

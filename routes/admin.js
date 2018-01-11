@@ -51,6 +51,7 @@ router.route('/')
         var number = req.body.number;
         var category = req.body.category;
         var description = req.body.description;
+        var comment = req.body.comment;        
         var theory = req.body.theory;
         var avtodrom = req.body.avtodrom;
         var city = req.body.city;
@@ -93,6 +94,9 @@ router.route('/')
           number: number,
           category: category,
           description: description,
+          reviews: [{
+            comment: comment
+          }],
           theory: theory,
           avtodrom: avtodrom,
           city: city,
@@ -241,6 +245,7 @@ router.route('/:id/edit')
       var number = req.body.number;
       var category = req.body.category;
       var description = req.body.description;
+      var comment = req.body.comment;  
       var theory = req.body.theory;
       var avtodrom = req.body.avtodrom;
       var city = req.body.city;
@@ -284,6 +289,9 @@ router.route('/:id/edit')
             number: number,
             category: category,
             description: description,
+            reviews: [{
+                comment: comment
+            }],
             theory: theory,
             avtodrom: avtodrom,
             city: city,

@@ -50,7 +50,7 @@ router.route('/')
   })
 
 router.get('/pdd/exam/', function(req, res) {
-  res.render('components/pdd/index', { title: 'Экзамен ПДД Онлайн'});
+  res.render('components/pdd/index', { user: req.user }, { title: 'Экзамен ПДД Онлайн'});
 });
 
 module.exports = router;

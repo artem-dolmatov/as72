@@ -12,23 +12,27 @@ block content
         label(for='tab1') Главная
         input.school-show#tab2(type='radio' name='tabs')
         label(for='tab2') Описание
-        //- input.school-show#tab3(type='radio' name='tabs')
-        //- label(for='tab3') Отзывы
+        input.school-show#tab3(type='radio' name='tabs')
+        label(for='tab3') Отзывы
 
         section.bg-vk#content1
           .row
             .col-md-3
               .card.card-margin
-                .card-up.dark-blue
+                .card-up
                 .avatar
-                  img.rounded-circle(src="http://www.avtomobilist-tmn.ru/wp-content/themes/twentytwelve/img/logo.png")
+                  img.rounded-circle(src="/images/schools/" + school._id + "/logo.png", alt='Логотип')
                 .card-body
                   h4 #{school.name}
             .col-md-6
               .row
                 .col-12
-                  .page-block 
-                    h4 Категории: #{school.category}
+                  .page-block
+                    .row
+                      .col-8
+                        h4 Категории:
+                      .col-4 
+                        h4 #{school.category}                        
                 .col-12
                   .page-block
                     .center
@@ -68,6 +72,59 @@ block content
                         p #{school.phone14}  
                         p #{school.phone15}  
                         p #{school.phone16}
+                  // Button trigger modal
+                  - if (!user) {
+                    button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal') Авторизация
+                    // Modal
+                  #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                    .modal-dialog(role='document')
+                      .modal-content
+                        .modal-header
+                          h5#exampleModalLabel.modal-title Авторизация
+                          button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') ×
+                        .modal-body
+                        .modal-footer
+                          button.btn.btn-secondary(type='button', data-dismiss='modal') Отмена
+                          button.btn.btn-primary(type='button') Save changes
+                  - } else {
+                    button.btn.btn-primary(type='button', data-toggle='modal', data-target='.bd-example-modal-lg') Оставить отзыв
+                    // Modal
+                  #exampleModal.modal.fade.bd-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                    .modal-dialog.modal-dialog.modal-lg(role='document')
+                      .modal-content
+                        .modal-header
+                          h5#exampleModalLabel.modal-title Оставить отзыв
+                          button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') ×
+                        .modal-body
+                          - var date = new Date();
+                          .comment-block
+                            img(src=user._json.photo, alt="avatar", style='border-radius: 50%')
+                            a(href=user.profileUrl, style='margin-left: 10px' target='_blank') #{user.displayName}                          
+                          form(name='addcomment', method='post')
+                            .like.btn-group.btn-group-toggle(data-toggle="buttons")
+                              .like-text
+                                p Понравилась ли Вам Автошкола?
+                              label.btn.btn-success.active
+                                input#inputLike(type="radio", name='rating', autocomplete='off', checked)
+                                | Да
+                              label.btn.btn-danger
+                                input#inputDislike(type="radio", name='rating', autocomplete='off')
+                                | Нет
+                            .form-group
+                              input#inputSchoolId(type='text', name='schoolId', value=school.id, hidden)
+                              input#inputSchoolName(type='text', name='schoolName', value=school.name, hidden)
+                              input#inputDate(type='text', name='date', value=date, hidden)
+                              input#inputAvatar(type='text', name='avatar', value=user._json.photo, hidden)
+                              input#inputUserId(type='text', name='userId', value=user.profileUrl, hidden)
+                              input#inputUserName(type='text', name='userName', value=user.displayName, hidden)
+                              textarea#textareaComment(type='text', name='comment', required, placeholder='Напишите свой комментарий...', style='width:100%; height: 150px;')
+                              input(type='hidden' value='PUT' name='_method')
+                            .form-group  
+                              button.btn.btn-secondary(type='button', data-dismiss='modal') Отмена
+                              button.btn.btn-primary(type='submit' style='margin-left: 10px') Опубликовать
+                  -}    
             .col-md-3
               .page-block
                 .center
@@ -86,20 +143,25 @@ block content
                         td #{school.avtodrom}%                  
                         td #{school.city}%
             .col-12
-              p * Результаты сдачи экзаменов кандидатами в водители, прошедшими профессиональное обучение в организациях, осуществляющих образовательную деятельность по подготовке водителей транспортных средств категории "B" на территории обслуживания УГИБДД УМВД России по Тюменской области, за 9 месяцев 2017 года.                          
+              h6.left * Результаты сдачи экзаменов кандидатами в водители, прошедшими профессиональное обучение в организациях, осуществляющих образовательную деятельность по подготовке водителей транспортных средств категории "B" на территории обслуживания УГИБДД УМВД России по Тюменской области, за 9 месяцев 2017 года.                          
         section.bg-vk#content2
           .row
             .col-md-3
               .card.card-margin
-                .card-up.dark-blue
+                .card-up
                 .avatar
-                  img.rounded-circle(src="http://www.avtomobilist-tmn.ru/wp-content/themes/twentytwelve/img/logo.png")
+                  img.rounded-circle(src="/images/schools/" + school._id + "/logo.png", alt='Логотип')
                 .card-body
                   h4 #{school.name}
             .col-md-6
               .page-block
                 pre #{school.description}      
         section.bg-vk#content3
-          p 3
+          .row
+            .col-12
+              - var review = school.length
+              each val, i in school.reviews.reverse()
+                = val.comment
+                p #{review}
     include ../components/footer
     include ../components/scripts

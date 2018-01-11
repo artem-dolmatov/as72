@@ -7,6 +7,13 @@ body {
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
+h4 {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+h6 {
+  font-size: 0.9rem;
+}
 pre {
   white-space: pre-line;
   text-align: left;
@@ -46,6 +53,26 @@ pre {
   color: #333333;
   text-decoration: none;
 }
+.bg-white {
+  background: white;
+}
+.auth {
+  display: inline-block;
+  float: right;
+}
+.auth-mailbar {
+  margin-bottom: 0;
+  margin-right: 5px;
+  display: inline-block;
+}
+.auth-avatar {
+  border-radius: 50%;
+  width: 30px;
+  margin-right: 10px;
+  display: inline-block;
+  margin-bottom: -6px;
+  margin-top: -9px;
+}
 /* Топ автошкол */
 .top-form {
   background: rgba(255, 255, 255, 0.7);
@@ -73,6 +100,28 @@ pre {
 .top-text {
   color: black;
   font-weight: 300;
+}
+/* Header */
+.bg-grid {
+  background: url(images/video-bg.png) repeat;
+  z-index: 10;
+}
+video {
+  position: absolute;
+  overflow: hidden;
+  left: 49.99%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%);
+  margin-top: -3px;
+}
+@media(max-width: 1024px) {
+  .bg-video {
+    display: none;
+  }
 }
 /* Автошколы */
 .school-head {
@@ -147,8 +196,11 @@ input:checked + label {
 }
 .card-up {
   overflow: hidden;
-  height: 120px;
+  height: 90px;
   border-radius: .3rem .3rem 0 0;
+}
+.card-body {
+  border-top: 1px solid #d7d8db;
 }
 .avatar {
   border-radius: 50%;
@@ -160,6 +212,14 @@ input:checked + label {
 }
 .rounded-circle {
   width: 100%;
+}
+.comment-block {
+  margin-bottom: 10px;
+  display: inline-block;
+  float: left;
+}
+.like {
+  float: right;
 }
 /* Админка */
 .admin-delete {

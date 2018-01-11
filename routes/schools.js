@@ -43,7 +43,6 @@ router.route('/')
               }
         });
     })
-
 // route middleware to validate :id
 router.param('id', function(req, res, next, id) {
     //console.log('validating ' + id + ' exists');
@@ -86,7 +85,8 @@ router.route('/:id')
           html: function(){
               res.render('schools/show', {
                 title: 'Автошкола ' + school.name,
-                "school" : school
+                "school" : school,
+                user: req.user
               });
           },
           json: function(){
@@ -95,6 +95,50 @@ router.route('/:id')
         });
       }
     });
-  });
+  })
+  //PUT to update a blob by ID
+	.put(function (req, res) {
+    // Get our REST or form values. These rely on the "name" attributes
+    var schoolId = req.body.schoolId;
+    var schoolName = req.body.schoolName;
+    var date = req.body.date;
+    var avatar = req.body.avatar;
+    var userId = req.body.userId;
+    var userName = req.body.userName;
+    var comment = req.body.comment;
+    //find the document by ID
+    mongoose.model('School').findById(req.id, function (err, school) {
+        //update it
+        school.update({
+            $push: {
+                reviews: {
+                    schoolId: schoolId,
+                    schoolName: schoolName,
+                    date: date,
+                    avatar: avatar,
+                    userId: userId,
+                    userName: userName,
+                    comment: comment
+                }
+            }    
+        }, function (err, schoolID) {
+            if (err) {
+                res.send("There was a problem updating the information to the database: " + err);
+            }
+            else {
+                //HTML responds by going back to the page or you can be fancy and create a new view that shows a success page.
+                res.format({
+                    html: function () {
+                        res.redirect("/school/" + school._id);
+                    },
+                    //JSON responds showing the updated values
+                    json: function () {
+                        res.json(school);
+                    }
+                });
+            }
+        })
+    });
+})
 
 module.exports = router;
