@@ -41,7 +41,7 @@ passport.use(new VkStrategy(
   {
     clientID: VK_APP_ID,
     clientSecret: VK_APP_SECRET,
-    callbackURL: "http://localhost:3000/auth/vk/callback",
+    callbackURL: "http://as72.ru/auth/vk/callback",
     scope: ['email'],
     profileFields: ['email'],
   },
