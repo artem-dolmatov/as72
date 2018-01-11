@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var robots = require('express-robots-txt');
 var passport = require('passport'); // vk
 var VkStrategy = require('passport-vkontakte').Strategy; // vk
 
@@ -81,6 +82,7 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/admin', admin);
 app.use('/school', schools);
+app.use(robots({ UserAgent: '*', Disallow: '/admin/',  CrawlDelay: '5' }))
 
 // Авторизация в контакте
 app.get('/school/:id', function (req, res) {
