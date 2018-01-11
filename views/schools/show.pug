@@ -48,9 +48,11 @@ block content
                               button.close(type='button', data-dismiss='modal', aria-label='Close')
                                 span(aria-hidden='true') ×
                             .modal-body
+                              a(href="/auth/vk")
+                                img(src="/images/vk.jpg", alt="vk" style='width:80px')
+                              p Для того чтобы оставить отзыв вам необходимо авторизироваться через социальную сеть. Кликните на значок для продолжения.
                             .modal-footer
                               button.btn.btn-secondary(type='button', data-dismiss='modal') Отмена
-                              button.btn.btn-primary(type='button') Save changes
                       - } else {
                         button.btn.btn-primary(type='button', data-toggle='modal', data-target='.bd-example-modal-lg') Добавить отзыв
                         // Modal
