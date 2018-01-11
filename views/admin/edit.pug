@@ -27,6 +27,21 @@ block content
                 input.form-control#inputTheory(type='text', name='theory', value=school.theory, placeholder="теория")  
                 input.form-control#inputAvtodrom(type='text', name='avtodrom', value=school.avtodrom, placeholder="автодром")  
                 input.form-control#inputCity(type='text', name='city', value=school.city, placeholder="город")
+              .like.btn-group.btn-group-toggle(data-toggle="buttons")
+                label.btn.btn-success.active
+                  input#inputLike(type="radio", name='rating', autocomplete='off', value='1', checked)
+                  | like
+                label.btn.btn-danger
+                  input#inputDislike(type="radio", name='rating', value='-1', autocomplete='off')
+                  | dislike
+              .form-group
+                input#inputSchoolId(type='text', name='schoolId', value=school.id, hidden)
+                input#inputSchoolName(type='text', name='schoolName', value=school.name, hidden)
+                input#inputDate(type='text', name='date', value=date, hidden)
+                input#inputAvatar(type='text', name='avatar', placeholder='аватар')
+                input#inputUserId(type='text', name='userId', placeholder='id')
+                input#inputUserName(type='text', name='userName', placeholder='имя')
+                textarea#textareaComment(type='text', name='comment', required, placeholder='Напишите свой комментарий...', style='width:100%; height: 150px;')  
             .col-8
               .row
                 .col-7

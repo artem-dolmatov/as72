@@ -245,7 +245,14 @@ router.route('/:id/edit')
       var number = req.body.number;
       var category = req.body.category;
       var description = req.body.description;
+      var schoolId = req.body.schoolId;
+      var schoolName = req.body.schoolName;
+      var date = req.body.date;
+      var avatar = req.body.avatar;
+      var userId = req.body.userId;
+      var userName = req.body.userName;
       var comment = req.body.comment;  
+      var rating = req.body.rating;  
       var theory = req.body.theory;
       var avtodrom = req.body.avtodrom;
       var city = req.body.city;
@@ -289,9 +296,18 @@ router.route('/:id/edit')
             number: number,
             category: category,
             description: description,
-            reviews: [{
-                comment: comment
-            }],
+            $push: {
+                reviews: {
+                    schoolId: schoolId,
+                    schoolName: schoolName,
+                    date: date,
+                    avatar: avatar,
+                    userId: userId,
+                    userName: userName,
+                    comment: comment,
+                    rating: rating  
+                }
+            }, 
             theory: theory,
             avtodrom: avtodrom,
             city: city,

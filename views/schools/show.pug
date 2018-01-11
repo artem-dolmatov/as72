@@ -73,10 +73,10 @@ block content
                                   .like-text
                                     p Понравилась ли Вам Автошкола?
                                   label.btn.btn-success.active
-                                    input#inputLike(type="radio", name='rating', autocomplete='off', checked)
+                                    input#inputLike(type="radio", name='rating', autocomplete='off', value='1', checked)
                                     | Да
                                   label.btn.btn-danger
-                                    input#inputDislike(type="radio", name='rating', autocomplete='off')
+                                    input#inputDislike(type="radio", name='rating', value='-1', autocomplete='off')
                                     | Нет
                                 .form-group
                                   input#inputSchoolId(type='text', name='schoolId', value=school.id, hidden)
@@ -163,10 +163,17 @@ block content
                 pre #{school.description}      
         section.bg-vk#content3
           .row
-            .col-12
+            .col-md-9
               - var review = school.length
               each val, i in school.reviews.reverse()
-                = val.comment
-                p #{review}
+                .page-block(style='margin-left:10px')
+                  a.reviews-image(href=val.userId, target='_blank')
+                    img.review-img(src=val.avatar, alt="avatar")
+                  .content
+                    .content-author
+                      a(href=val.userId, target='_blank') 
+                        = val.userName
+                    .content-text
+                      p= val.comment  
     include ../components/footer
     include ../components/scripts

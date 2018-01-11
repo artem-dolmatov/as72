@@ -106,6 +106,7 @@ router.route('/:id')
     var userId = req.body.userId;
     var userName = req.body.userName;
     var comment = req.body.comment;
+    var rating = req.body.rating;
     //find the document by ID
     mongoose.model('School').findById(req.id, function (err, school) {
         //update it
@@ -118,7 +119,8 @@ router.route('/:id')
                     avatar: avatar,
                     userId: userId,
                     userName: userName,
-                    comment: comment
+                    comment: comment,
+                    rating: rating
                 }
             }    
         }, function (err, schoolID) {

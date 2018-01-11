@@ -12,6 +12,7 @@ var blobSchema = new mongoose.Schema({
     userId: String,
     userName: String,
     comment: String,
+    rating: String
   }],
   description: String,
   theory: String,

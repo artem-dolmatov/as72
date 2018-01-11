@@ -3,7 +3,7 @@
     .top-form
       .top-body
         .top-form-head
-          p.top-form-request Список Автошкол
+          p.top-form-request ТОП 5 Автошкол
         .row
           .col-12
             table.table
@@ -11,7 +11,7 @@
                 tr
                   th(scope='col') Название
               tbody
-                - schools.sort((a,b)=>{return (b.avtodrom-a.avtodrom)+(b.city-a.city)})
+                - schools.sort((a,b)=>{return (b.theory-a.theory)+(b.avtodrom-a.avtodrom)+(b.city-a.city)})
                 each school, i in schools.slice(0,5)        
                   tr
                     td
