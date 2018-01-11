@@ -11,7 +11,8 @@
                 tr
                   th(scope='col') Название
               tbody
-                each school, i in schools        
+                - schools.sort((a,b)=>{return (b.avtodrom-a.avtodrom)+(b.city-a.city)})
+                each school, i in schools.slice(0,5)        
                   tr
                     td
                       a(href='school/' + school._id) 
