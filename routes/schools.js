@@ -80,7 +80,7 @@ router.route('/:id')
       if (err) {
         console.log('GET Error: There was a problem retrieving: ' + err);
       } else {
-        console.log('GET Retrieving ID: ' + school._id);
+        console.log('GET Retrieving ID:');
         res.format({
           html: function(){
               res.render('schools/show', {

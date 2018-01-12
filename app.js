@@ -84,6 +84,10 @@ app.use('/admin', admin);
 app.use('/school', schools);
 app.use(robots({ UserAgent: '*', Disallow: '/admin/',  CrawlDelay: '5' }))
 
+// var accessToken = '5348003714.8fbd3e8.1992fe1971124e4a964ccde66d2d0dc5';
+// var InstagramAPI = require('instagram-api');
+// var instagramAPI = new InstagramAPI(accessToken);
+
 // Авторизация в контакте
 app.get('/school/:id', function (req, res) {
   res.render('school/show', { user: req.user });
