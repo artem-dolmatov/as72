@@ -223,15 +223,10 @@ input:checked + label {
   border-top: 1px solid #d7d8db;
 }
 .avatar {
-  border-radius: 50%;
   height: 120px;
   width: 120px;
   margin: -65px auto 0;
-  overflow: hidden;
   border: 5px solid #fff;
-}
-.rounded-circle {
-  width: 100%;
 }
 .comment-block {
   margin-bottom: 10px;
