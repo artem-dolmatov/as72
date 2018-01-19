@@ -179,20 +179,40 @@ input:checked + label {
 #tab3:checked ~ #content3 {
   display: block;
 }
+.card-margin {
+  margin-left: 3%;
+  margin-bottom: 3%;
+}
+@media screen and (min-width: 1024px) {
+  .block-reviews {
+    margin-left: 10px;
+  }
+}
 @media screen and (max-width: 650px) {
   label:before {
     margin: 0;
     font-size: 18px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 414px) {
   label {
     padding: 15px;
   }
-}
-.card-margin {
-  margin-left: 3%;
-  margin-bottom: 3%;
+  .m-margin {
+    margin: 0 5% 0 5%;
+  }
+  .m-margin-text {
+    margin: 1% 1% 1% 1%;
+  }      
+  .m-center {
+    text-align: center;
+  }
+  .page-block {
+    margin: 2% 1% 2% 1%;
+  }
+  .card-margin {
+    margin-left: 0;
+  }
 }
 .card-up {
   overflow: hidden;
@@ -225,20 +245,27 @@ input:checked + label {
   margin-right: 10px;
 }
 /* Отзывы */
+.review-padding {
+  padding: 10px 20px 0 10px;
+}
 .review-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   margin-top: 2px;
+}
+.review-name {
+  color: #42648b;
+  font-weight: 500;
 }
 .content {
   text-align: left;
+  margin-left: 62px;
 }
 .reviews-image {
   display: block;
   float: left;
   margin-top: 2px;
-  margin-right: 10px;
 }
 /* Админка */
 .admin-delete {

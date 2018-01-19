@@ -5,9 +5,9 @@ block content
     include ../components/mailbar
     include ../components/navbar
     .row
-      .col-12.school-head.center
+      .col-sm-12.school-head.center
         h3 Автошкола #{school.name}
-      .col-12.center
+      .col-sm-12.center
         input.school-show#tab1(type='radio' name='tabs' checked)
         label(for='tab1') Главная
         input.school-show#tab2(type='radio' name='tabs')
@@ -17,7 +17,7 @@ block content
 
         section.bg-vk#content1
           .row
-            .col-md-3
+            .col-md-3.col-sm-12
               .card.card-margin
                 .card-up
                 .avatar
@@ -28,14 +28,14 @@ block content
               .row
                 .col-12
                   .row
-                    .col-6
+                    .col-md-6
                       .page-block
                         .row
                           .col-4
                             h5 Категории:
                           .col-8 
                             h5 #{school.category}
-                    .col-6
+                    .col-md-6
                       // Button trigger modal
                       - if (!user) {
                         button.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal') Оставить отзыв об автошколе
@@ -148,7 +148,7 @@ block content
                         td #{school.avtodrom}%                  
                         td #{school.city}%
             .col-12
-              h6.left * Результаты сдачи экзаменов кандидатами в водители, прошедшими профессиональное обучение в организациях, осуществляющих образовательную деятельность по подготовке водителей транспортных средств категории "B" на территории обслуживания УГИБДД УМВД России по Тюменской области, за 9 месяцев 2017 года.                          
+              h6.left.m-margin-text * Результаты сдачи экзаменов кандидатами в водители, прошедшими профессиональное обучение в организациях, осуществляющих образовательную деятельность по подготовке водителей транспортных средств категории "B" на территории обслуживания УГИБДД УМВД России по Тюменской области, за 9 месяцев 2017 года.                          
         section.bg-vk#content2
           .row
             .col-md-3
@@ -166,14 +166,16 @@ block content
             .col-md-9
               - var review = school.length
               each val, i in school.reviews.reverse()
-                .page-block(style='margin-left:10px')
-                  a.reviews-image(href=val.userId, target='_blank')
-                    img.review-img(src=val.avatar, alt="avatar")
-                  .content
-                    .content-author
-                      a(href=val.userId, target='_blank') 
-                        = val.userName
-                    .content-text
-                      p= val.comment  
+                .page-block.block-reviews
+                  .review-padding
+                    a.reviews-image(href=val.userId, target='_blank')
+                      img.review-img(src=val.avatar, alt="avatar")
+                    .content
+                      .content-author
+                        a.review-name(href=val.userId, target='_blank') 
+                          = val.userName
+                          = val.date
+                      .content-text
+                        p= val.comment  
     include ../components/footer
     include ../components/scripts

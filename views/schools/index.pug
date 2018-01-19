@@ -13,9 +13,7 @@ block content
             tr
               th(scope='col') Название
               th(scope='col') Категории
-              th(scope='col') Теория
-              th(scope='col') Автодром
-              th(scope='col') Город
+              th(scope='col') Теория/Автодром/Город
           tbody
           - schools.sort((a,b)=>{return (b.theory-a.theory)+(b.avtodrom-a.avtodrom)+(b.city-a.city)})
           each school, i in schools        
@@ -26,10 +24,8 @@ block content
               td
                 = school.category
               td
-                = school.theory + '%'
-              td
-                = school.avtodrom + '%'
-              td
+                = school.theory + '% / '
+                = school.avtodrom + '% / '
                 = school.city + '%'        
       .col-md-3
     include ../components/footer  

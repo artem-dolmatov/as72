@@ -4,6 +4,7 @@ block content
   .container-fluid
     .row
       .col-12
+      - var date = new Date();
         form(action='/admin/'+ school._id +'/edit', method='post', name='updateblob', enctype='application/x-www-form-urlencoded')
           .row
             .col-4
@@ -37,7 +38,7 @@ block content
               .form-group
                 input#inputSchoolId(type='text', name='schoolId', value=school.id, hidden)
                 input#inputSchoolName(type='text', name='schoolName', value=school.name, hidden)
-                input#inputDate(type='text', name='date', value=date, hidden)
+                input#inputDate(type='text', name='date', value=date)
                 input#inputAvatar(type='text', name='avatar', placeholder='аватар')
                 input#inputUserId(type='text', name='userId', placeholder='id')
                 input#inputUserName(type='text', name='userName', placeholder='имя')
