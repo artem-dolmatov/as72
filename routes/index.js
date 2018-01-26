@@ -27,7 +27,7 @@ router.post('/', function (req, res) {
     subject: 'Заявка',
     html: "Категория: " + req.body.a + " " + req.body.b + " " + req.body.c + " " + req.body.d + " " + req.body.e + "<br /><br />" +
       "Район: " + req.body.center + " " + req.body.kpd + " " + req.body.studcity + " " + req.body.mis + " " + req.body.tyumen + " " + req.body.vostok + " " + req.body.oborona + "<br /><br />" +
-      "Тип обучения: " + req.body.online + " " + req.body.group + "<br /><br />" +
+      "Тип обучения: " + req.body.online + " " + req.body.group + " " + req.body.individual + "<br /><br />" +
       "Тип трансмиссии: " + req.body.mkpp + " " + req.body.akpp + "<br /><br />" +
       "Номер телефона: " + req.body.phone
   };
