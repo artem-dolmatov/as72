@@ -4,6 +4,7 @@ block content
   .container-fluid
     include ../components/mailbar
     include ../components/navbar
+    include ../components/header
     .row
       .col-sm-12.school-head.center
         h3 Автошкола #{school.name}
@@ -147,6 +148,7 @@ block content
                         td #{school.theory}%                 
                         td #{school.avtodrom}%                  
                         td #{school.city}%
+              include ../components/banner          
             .col-12
               h6.left.m-margin-text * Результаты сдачи экзаменов кандидатами в водители, прошедшими профессиональное обучение в организациях, осуществляющих образовательную деятельность по подготовке водителей транспортных средств категории "B" на территории обслуживания УГИБДД УМВД России по Тюменской области, за 9 месяцев 2017 года.                          
         section.bg-vk#content2
@@ -160,7 +162,9 @@ block content
                   h4 #{school.name}
             .col-md-6
               .page-block
-                pre #{school.description}      
+                pre #{school.description}
+            .col-md-3
+              include ../components/banner          
         section.bg-vk#content3
           .row
             .col-md-9
@@ -176,6 +180,8 @@ block content
                           = val.userName
                           = val.date
                       .content-text
-                        p= val.comment  
+                        p= val.comment
+            .col-md-3
+              include ../components/banner              
     include ../components/footer
     include ../components/scripts

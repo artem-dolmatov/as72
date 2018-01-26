@@ -1,5 +1,91 @@
-.row(style="background: url(images/video-bg.png) repeat")
-  video.bg-video(playsinline autoplay muted loop)
-    source(src="video/video.mp4" type="video/mp4")
-  .col-md-12
-    h1 Hello  
+.row.bg
+  .col-sm-12
+    div.head-text.center
+      h2.m-h2 Подберем автошколу в удобном месте по лучшей цене!
+  .col-md-6
+  .col-md-6
+    form#contactform.form-head(action="/" method="POST" role='form' onsubmit="return (ValidPhone())")
+      fieldset
+        .row.center
+          .col-md-12
+            h5 Расчет стоимости обучения
+        .row.marg
+          .col-sm-3
+            p Категория
+          .col-sm-9
+            input#A.filled-in(type='checkbox' value='A' name='a')
+            label(for='A')
+              span.span-btn A
+            input#B.filled-in(type='checkbox' value='B' name='b')
+            label(for='B')
+              span.span-btn B
+            input#C.filled-in(type='checkbox' value='C' name='c')
+            label(for='C')
+              span.span-btn C
+            input#D.filled-in(type='checkbox' value='D' name='d')
+            label(for='D')
+              span.span-btn D
+            input#E.filled-in(type='checkbox' value='E' name='e')
+            label(for='E')
+              span.span-btn E
+        .row.marg
+          .col-sm-3
+            p Район
+          .col-sm-9
+            input#center.filled-in(type='checkbox' value='Центр' name='center')
+            label(for='center')
+              span.span-btn Центр
+            input#kpd.filled-in(type='checkbox' value='КПД' name='kpd')
+            label(for='kpd')
+              span.span-btn КПД
+            input#studcity.filled-in(type='checkbox' value='Студгородок' name='studcity')
+            label(for='studcity')
+              span.span-btn Студгородок
+            input#mis.filled-in(type='checkbox' value='Мыс' name='mis')
+            label(for='mis')
+              span.span-btn Мыс
+            input#tyumen.filled-in(type='checkbox' value='Тюменский' name='tyumen')
+            label(for='tyumen')
+              span.span-btn Тюменский
+            input#vostok.filled-in(type='checkbox' value='Восточный' name='vostok')
+            label(for='vostok')
+              span.span-btn Восточный
+            input#oborona.filled-in(type='checkbox' value='Оборона' name='oborona')
+            label(for='oborona')
+              span.span-btn Оборона 
+        .row.marg
+          .col-sm-3
+            p Тип Обучения
+          .col-sm-9
+            input#online.filled-in(type='checkbox' value='Онлайн' name='online')
+            label(for='online')
+              span.span-btn Онлайн
+            input#group.filled-in(type='checkbox' value='Стандартное' name='group')
+            label(for='group')
+              span.span-btn Стандартное
+        .row.marg
+          .col-sm-3
+            p Тип Трансмиссии
+          .col-sm-9
+            input#mkpp.filled-in(type='checkbox' value='Механическая' name='mkpp')
+            label(for='mkpp')
+              span.span-btn Механическая
+            input#akpp.filled-in(type='checkbox' value='Автоматическая' name='akpp')
+            label(for='akpp')
+              span.span-btn Автоматическая
+        .center
+          input.next.btn.btn-primary(type='button', name='next', value='Рассчитать')
+      fieldset.center
+        .com-sm-12
+          h4 Расчет выполнен!
+        .row
+          .col-sm-10.offset-sm-1
+            input.form-control#phone(style='margin-top: 10px' type='text' name='phone' placeholder='Введите Ваш номер телефона')
+            p#message
+            button.btn.btn-primary(type='submit') Отправить
+        .row    
+          .col-sm-12
+            input#personal(type='checkbox', checked)
+            label.person(for='personal') Я согласен с 
+              a(href='/personal', target='_blank') условиями обработки персональных данных
+

@@ -16,6 +16,31 @@ router.use(methodOverride(function (req, res) {
   }
 }))
 
+router.post('/', function (req, res) {
+  var api_key = 'key-430a017b2d04af9af2d9cfd80e7a2c08';
+  var domain = 'sandboxc1a42f17212546f1b27b27d149b04546.mailgun.org';
+  var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
+
+  var data = {
+    from: 'as72.ru <postmaster@sandboxc1a42f17212546f1b27b27d149b04546.mailgun.org>',
+    to: 'tmn-as72@yandex.ru',
+    subject: 'Заявка',
+    html: "Категория: " + req.body.a + " " + req.body.b + " " + req.body.c + " " + req.body.d + " " + req.body.e + "<br /><br />" +
+      "Район: " + req.body.center + " " + req.body.kpd + " " + req.body.studcity + " " + req.body.mis + " " + req.body.tyumen + " " + req.body.vostok + " " + req.body.oborona + "<br /><br />" +
+      "Тип обучения: " + req.body.online + " " + req.body.group + "<br /><br />" +
+      "Тип трансмиссии: " + req.body.mkpp + " " + req.body.akpp + "<br /><br />" +
+      "Номер телефона: " + req.body.phone
+  };
+
+  mailgun.messages().send(data, function (error, body) {
+    console.log(body);
+    if (!error)
+      res.redirect('/')
+    else
+      res.send("Mail not sent")
+  });
+});
+
 /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   res.render('index', { title: 'Автошколы Екатеринбурга' });
@@ -53,4 +78,7 @@ router.get('/pdd/exam/', function(req, res) {
   res.render('components/pdd/index', { title: 'Экзамен ПДД Онлайн'});
 });
 
+router.get('/personal', function (req, res) {
+  res.render('personal', { title: 'Согласие на обработку персональных данных' });
+});
 module.exports = router;

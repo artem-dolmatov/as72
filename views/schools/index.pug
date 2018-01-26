@@ -4,6 +4,7 @@ block content
   .container-fluid
     include ../components/mailbar
     include navbar
+    include ../components/header    
     .row
       .col-12.school-head.center
         h3 Все Автошколы Тюмени в одном месте
@@ -28,5 +29,6 @@ block content
                 = school.avtodrom + '% / '
                 = school.city + '%'        
       .col-md-3
+        include ../components/banner
     include ../components/footer  
   include ../components/scripts    
